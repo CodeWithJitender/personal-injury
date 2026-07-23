@@ -858,8 +858,11 @@ html {
 
 /* Fluid Typography */
 .bannercontent h1, h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    font-size: clamp(2.25rem, 5vw, 3.75rem) !important;
     line-height: 1.1 !important;
+}
+.bannercontent h1 {
+    margin-top: 70px !important;
 }
 .bannercontent h3, h3 {
     font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
@@ -1012,7 +1015,7 @@ html {
 }
 
 /* 4. Remove textarea background in footer form */
-.form-card .form-textarea-filled, 
+#bottom-form .form-card .form-textarea-filled, 
 #bottom-form .form-textarea-filled, 
 .cta-footer .form-textarea-filled {
     background: transparent !important;
