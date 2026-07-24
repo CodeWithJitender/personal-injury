@@ -1021,3 +1021,8 @@ html {
     background: transparent !important;
 }
 
+/* 5. Section Padding overrides (excluding hero) */
+section {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
