@@ -233,37 +233,73 @@ select.form-select-field {
 .casetypes-section .glocalmainheading {
     color: #070c1e !important; /* Back to dark text */
 }
-.marquee-wrapper {
+/* --- CASE TYPES MARQUEE --- */
+.case-marquee-wrapper {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: 15px 0; /* Reduced padding */
+    padding: 15px 0;
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
-.marquee-track {
+.case-marquee-track {
     display: flex;
     width: 100%;
     padding: 20px 0;
-    /* Removed overflow: hidden to prevent cropping on hover */
 }
-.marquee-content {
+.case-marquee-content {
     display: flex;
     width: max-content;
 }
-.marquee-left {
-    animation: scroll-left 60s linear infinite;
+.case-marquee-left {
+    animation: case-scroll-left 60s linear infinite;
 }
-.marquee-track:hover .marquee-content {
+.case-marquee-track:hover .case-marquee-content {
     animation-play-state: paused;
 }
-@keyframes scroll-left {
+@keyframes case-scroll-left {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
-@keyframes scroll-right {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
+
+/* --- TESTIMONIALS MARQUEE & SLIDER RESPONSIVENESS --- */
+.testi-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.testi-slider {
+    display: none;
+}
+@media (max-width: 991px) {
+    .testi-marquee-wrapper {
+        display: none !important;
+    }
+    .testi-slider {
+        display: block !important;
+    }
+}
+.testi-marquee-track {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+}
+.testi-marquee-content {
+    display: flex;
+    width: max-content;
+}
+.testi-marquee-left {
+    animation: testi-scroll-left 60s linear infinite;
+}
+.testi-marquee-track:hover .testi-marquee-content {
+    animation-play-state: paused;
+}
+@keyframes testi-scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 .case-tag {
@@ -339,12 +375,13 @@ select.form-select-field {
     color: #ffffff;
     font-size: 24px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 0 auto;
 }
 .step-vertical-tick {
     width: 2px;
     height: 30px;
     background-color: #e87352; /* Orange-red tick */
-    margin: 5px 0;
+    margin: 5px auto;
 }
 .step-num {
     font-size: 15px;
@@ -802,6 +839,7 @@ select.form-select-field {
     color: #333333;
     line-height: 1.6;
     flex-grow: 1;
+    margin-bottom: 15px; /* Added spacing between text and author */
 }
 .testi-author {
     display: flex;
@@ -980,29 +1018,15 @@ html {
 
 /* 2. Horizontal Scroll for Process Section on Mobile */
 @media (max-width: 991px) {
-    .process-horizontal-new {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-overflow-scrolling: touch !important;
+    .process-horizontal-new.slick-slider {
+        display: block !important;
         padding-bottom: 30px !important;
-        justify-content: flex-start !important;
-        scroll-behavior: smooth;
-    }
-    .process-horizontal-new::-webkit-scrollbar {
-        height: 6px;
-    }
-    .process-horizontal-new::-webkit-scrollbar-thumb {
-        background: rgba(0,0,0,0.2);
-        border-radius: 10px;
+        width: 100%;
     }
     .process-step-new {
-        flex: 0 0 85% !important;
-        max-width: 85% !important;
-        scroll-snap-align: center !important;
-        margin-right: 15px !important;
-        margin-bottom: 0 !important;
+        max-width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 20px !important;
     }
     .process-line-bg { 
         display: none !important; 

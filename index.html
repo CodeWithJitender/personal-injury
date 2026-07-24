@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="css/aos.css" />
     <link rel="stylesheet" href="css/style6.css" />
     <link rel="stylesheet" href="css/custom-revamp.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <!-- Meta Pixel Code -->
@@ -869,9 +871,9 @@
           </h2>
         </div>
 
-        <div class="marquee-wrapper">
-          <div class="marquee-track">
-            <div class="marquee-content marquee-left">
+        <div class="case-marquee-wrapper">
+          <div class="case-marquee-track">
+            <div class="case-marquee-content case-marquee-left">
               <!-- Set 1 -->
               <span class="case-tag">Motor Vehicle Accidents</span>
               <span class="case-tag">Premises Liability & Slip and Fall</span>
@@ -1088,9 +1090,9 @@
         </div>
 
         <!-- Single Marquee Row -->
-        <div class="marquee-wrapper">
-          <div class="marquee-track">
-            <div class="marquee-content marquee-left">
+        <div class="testi-marquee-wrapper">
+          <div class="testi-marquee-track">
+            <div class="testi-marquee-content testi-marquee-left">
               <!-- Card 1 -->
               <div class="testi-card-new">
                 <div class="testi-quote-icon">“</div>
@@ -1251,6 +1253,92 @@
                     <span>Personal Injury Attorney, New York</span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slick Slider for Testimonials -->
+        <div class="testi-slider mt-4">
+          <!-- Card 1 -->
+          <div class="testi-card-new">
+            <div class="testi-quote-icon">“</div>
+            <div class="testi-text">
+              Working with their team helped us finally get ahead of our
+              caseload. Their responsiveness, accuracy, and understanding of
+              plaintiff-side PI work made them feel like an in-house
+              extension of our firm.
+            </div>
+            <div class="testi-author">
+              <div class="author-avatar-new">MR</div>
+              <div class="author-info">
+                <h6>Michael R.</h6>
+                <span>Managing Attorney, California</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="testi-card-new">
+            <div class="testi-quote-icon">“</div>
+            <div class="testi-text">
+              We needed reliable litigation support without the overhead of
+              hiring internally. From discovery prep to medical
+              chronologies, everything was handled efficiently and
+              professionally.
+            </div>
+            <div class="testi-author">
+              <div class="author-avatar-new">SL</div>
+              <div class="author-info">
+                <h6>Sarah L.</h6>
+                <span>Personal Injury Attorney, Texas</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="testi-card-new">
+            <div class="testi-quote-icon">“</div>
+            <div class="testi-text">
+              The intake support alone transformed our workflow. Every lead
+              was followed up promptly, retainers went out faster, and our
+              team could focus on client strategy instead of admin work.
+            </div>
+            <div class="testi-author">
+              <div class="author-avatar-new">DK</div>
+              <div class="author-info">
+                <h6>David K.</h6>
+                <span>Solo Practitioner, Florida</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="testi-card-new">
+            <div class="testi-quote-icon">“</div>
+            <div class="testi-text">
+              Their paralegals integrated seamlessly into our existing
+              systems and processes. They adapted quickly to our way of
+              working and consistently delivered high-quality support.
+            </div>
+            <div class="testi-author">
+              <div class="author-avatar-new">AT</div>
+              <div class="author-info">
+                <h6>Amanda T.</h6>
+                <span>Founding Attorney, Illinois</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="testi-card-new">
+            <div class="testi-quote-icon">“</div>
+            <div class="testi-text">
+              As a single practitioner, I needed dependable support that
+              could scale when my docket became overwhelming. Their team
+              gave me the flexibility and reliability I was missing.
+            </div>
+            <div class="testi-author">
+              <div class="author-avatar-new">JM</div>
+              <div class="author-info">
+                <h6>Jonathan M.</h6>
+                <span>Personal Injury Attorney, New York</span>
               </div>
             </div>
           </div>
@@ -1437,6 +1525,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.js"></script>
     <script src="js/aos.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <!-- AOS Scroll Animations -->
     <script>
@@ -1581,48 +1670,51 @@
       }
     </script>
     <script>
-      // Auto-scroll for Process Section on Mobile
-      document.addEventListener("DOMContentLoaded", function () {
-        const processContainer = document.querySelector(".process-horizontal-new");
-        if (!processContainer) return;
-
-        let autoScrollInterval;
-        let isUserScrolling = false;
-        
-        function startAutoScroll() {
-          if (window.innerWidth >= 992) return; // Only run on mobile
-          
-          autoScrollInterval = setInterval(() => {
-            if (isUserScrolling) return; // Pause if user is interacting
-            
-            const maxScrollLeft = processContainer.scrollWidth - processContainer.clientWidth;
-            // If we've reached the end, snap back to start
-            if (processContainer.scrollLeft >= maxScrollLeft - 10) {
-              processContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-              // Scroll by roughly one item's width (85% of container width)
-              processContainer.scrollBy({ left: processContainer.clientWidth * 0.85, behavior: 'smooth' });
+      $(document).ready(function(){
+        // Auto-scroll for Process Section on Mobile using Slick Slider
+        function initProcessSlider() {
+          var $slider = $('.process-horizontal-new');
+          if ($(window).width() < 992) {
+            if (!$slider.hasClass('slick-initialized')) {
+              // Strip AOS attributes so they don't hide the slides or mess with Slick's transform
+              $slider.find('.process-step-new').removeAttr('data-aos').css({
+                  'opacity': 1,
+                  'transform': 'none'
+              });
+              
+              $slider.slick({
+                slide: '.process-step-new',
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false
+              });
             }
-          }, 3000); // Slide every 3 seconds
+          } else {
+            if ($slider.hasClass('slick-initialized')) {
+              $slider.slick('unslick');
+            }
+          }
         }
-
-        function stopAutoScroll() {
-          clearInterval(autoScrollInterval);
-        }
-
-        // Detect user interaction to pause auto-scrolling temporarily
-        processContainer.addEventListener("touchstart", () => { isUserScrolling = true; });
-        processContainer.addEventListener("touchend", () => {
-          setTimeout(() => { isUserScrolling = false; }, 3000); // Resume after 3s
-        });
-
-        // Initialize
-        startAutoScroll();
         
-        // Handle window resize
-        window.addEventListener("resize", () => {
-          stopAutoScroll();
-          startAutoScroll();
+        initProcessSlider();
+        $(window).on('resize', initProcessSlider);
+
+        // Initialize Testimonials Slider
+        $('.testi-slider').slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: false, // Usually standard sliding for testimonials is preferred unless requested otherwise, I'll use standard horizontal sliding
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: false
         });
       });
     </script>
