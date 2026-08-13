@@ -47,4 +47,27 @@ add additional media queries here.
         font-size: 13px;
     }
 
+    .topbar {
+        padding: 0px !important;
+    }
+
+    .hero-form-card {
+        margin: 0px !important;
+    }
+
+    .bannercontent {
+        padding: 0px !important;
+    }
+
+    .support-section {
+        padding: 50px 0px !important;
+    }
+
+    .case-marquee-wrapper {
+        padding: 0px;
+    }
+
+    .case-marquee-track {
+        padding-bottom: 0px;
+    }
 }
