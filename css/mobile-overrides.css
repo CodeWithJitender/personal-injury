@@ -47,25 +47,4 @@ add additional media queries here.
         font-size: 13px;
     }
 
-    /* FAQ Spacing adjustments */
-    .faq-section .mb-5 {
-        margin-bottom: 20px !important;
-    }
-
-    .faq-wrapper .accordion-button {
-        padding: 15px 10px !important;
-        font-size: 15px !important;
-    }
-
-    .faq-wrapper .accordion-body {
-        padding: 0 10px 15px 10px !important;
-    }
-
-    .accordion-item {
-        margin-bottom: 10px;
-    }
-
-    .accordion-header {
-        margin-top: 0px !important;
-    }
 }

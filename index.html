@@ -115,10 +115,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" name="firm_name" id="hero-firm" class="form-control" placeholder="Firm Name" />
+                  <input type="text" name="firm_name" id="hero-firm" class="form-control" placeholder="Firm Name" required />
                 </div>
                 <div class="col-md-6">
-                  <select name="role" id="hero-role" class="form-control form-select-field">
+                  <select name="role" id="hero-role" class="form-control form-select-field" required>
                     <option value="" disabled selected>
                       Select Your Role
                     </option>
@@ -131,7 +131,7 @@
                   </select>
                 </div>
               </div>
-              <input type="tel" name="phone" id="hero-phone" class="form-control" placeholder="Phone (US)" />
+              <input type="tel" name="phone" id="hero-phone" class="form-control" placeholder="Phone (US)" required />
               <div class="form-field-label">
                 DOCUMENT TYPE & MONTHLY VOLUME
               </div>
@@ -822,7 +822,7 @@
   <section class="testimonials-section">
     <!-- Big White Container Card -->
     <div class="testimonial-container" data-aos="fade-up">
-      <div class="text-center mb-5" style="display: flex; flex-direction: column; align-items: center">
+      <div class="text-center  mb-md-5" style="display: flex; flex-direction: column; align-items: center">
         <div class="rating-badge" style="
               background: #070c1e;
               color: #fff;
@@ -988,10 +988,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" name="firm_name" id="cta-firm" class="form-control" placeholder="Firm Name" />
+                  <input type="text" name="firm_name" id="cta-firm" class="form-control" placeholder="Firm Name" required />
                 </div>
                 <div class="col-md-6">
-                  <select name="role" id="cta-role" class="form-control form-select-field">
+                  <select name="role" id="cta-role" class="form-control form-select-field" required>
                     <option value="" disabled selected>
                       Select Your Role
                     </option>
@@ -1004,7 +1004,7 @@
                   </select>
                 </div>
               </div>
-              <input type="tel" name="phone" id="cta-phone" class="form-control" placeholder="Phone (US)" />
+              <input type="tel" name="phone" id="cta-phone" class="form-control" placeholder="Phone (US)" required />
               <div class="form-field-label">
                 DOCUMENT TYPE & MONTHLY VOLUME
               </div>
@@ -1134,7 +1134,9 @@
   <!-- EmailJS Integration -->
   <script>
     (function () {
-      emailjs.init("QpkBmnT4LJ4PGyWTX");
+      emailjs.init({
+        publicKey: "QpkBmnT4LJ4PGyWTX",
+      });
     })();
 
     function showToast(message, isSuccess) {
@@ -1178,12 +1180,20 @@
       emailjs
         .send("service_5ukbpwr", "template_m5pnysx", templateParams)
         .then(function () {
-          window.location.href = "/thank-you";
+          showToast(
+            "Form submitted successfully! Thank you for reaching out.",
+            true
+          );
+          var formElement = document.getElementById(prefix === "hero" ? "hero-form" : "cta-form");
+          if (formElement) formElement.reset();
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          btn.style.opacity = "1";
         })
         .catch(function (error) {
           showToast(
             "Something went wrong. Please try again or call us directly.",
-            false,
+            false
           );
           console.error("EmailJS Error:", error);
           btn.innerHTML = originalText;
