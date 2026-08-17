@@ -522,7 +522,7 @@ select.form-select-field:focus {
 
 /* CTA Footer */
 .cta-footer {
-    background: linear-gradient(rgba(7, 12, 30, 0.95), rgba(7, 12, 30, 0.95)), url('../images/cta-legal-bg.png') center/cover no-repeat !important;
+    background: linear-gradient(rgba(7, 12, 30, 0.95), rgba(7, 12, 30, 0.95)), url('../images/cta-legal-bg.jpg') center/cover no-repeat !important;
     padding: 120px 0 !important;
 }
 
@@ -1237,7 +1237,7 @@ h2 {
    ============================================================ */
 
 .mainheader {
-    background: linear-gradient(to right, rgba(7, 12, 30, 0.9) 0%, rgba(7, 12, 30, 0.4) 50%, rgba(7, 12, 30, 0) 100%), url('../images/hero-bg.webp') center/cover no-repeat !important;
+    background: linear-gradient(to right, rgba(7, 12, 30, 0.9) 0%, rgba(7, 12, 30, 0.4) 50%, rgba(7, 12, 30, 0) 100%), url('../images/hero-bg.jpg') center/cover no-repeat !important;
 }
 
 .bannercontent h1,
